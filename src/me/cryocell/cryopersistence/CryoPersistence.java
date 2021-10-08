@@ -22,10 +22,8 @@ public class CryoPersistence extends JavaPlugin {
     public void onEnable() {
         this.configService = new ConfigService("config.yml", this.getDataFolder());
 
-        this.backupService = this.configService.getBackupConfig().getIsAutoBackupOn() ? new BackupService(this.configService, this) : null;
-        this.saveService = this.configService.getSaveConfig().getIsAutoSaveOn() ? new SaveService(this.configService, this) : null;
-
-        MessageUtils.broadcastMessage(this.getServer(), "ticks: " + this.configService.getSaveConfig().getAutoSaveIntervalTicks());
+        this.backupService = new BackupService(this.configService, this);
+        this.saveService = new SaveService(this.configService, this);
 
         this.getCommand(Constants.COMMAND_NAME).setTabCompleter(new CryoPersistenceTabComplete(this));
         this.getCommand(Constants.COMMAND_NAME).setExecutor(new CryoPersistenceCommand(this, this.configService));
@@ -48,10 +46,10 @@ public class CryoPersistence extends JavaPlugin {
     public void reloadTasks() {
         this.cancelTasks();
 
-        if(this.configService.getSaveConfig().getIsAutoSaveOn()) {
+        if(this.configService.getSaveConfig().getAutoSaveIntervalTicks() > 0) {
             this.saveService = new SaveService(this.configService, this);
         }
-        if(this.configService.getBackupConfig().getIsAutoBackupOn()) {
+        if(this.configService.getBackupConfig().getAutoBackupIntervalTicks() > 0) {
             this.backupService = new BackupService(this.configService, this);
         }
     }

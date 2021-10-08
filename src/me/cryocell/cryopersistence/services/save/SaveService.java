@@ -16,12 +16,11 @@ public class SaveService {
     public SaveService(ConfigService configService, CryoPersistence plugin) {
         this.configService = configService;
         this.plugin = plugin;
-
-        this.kickOffAutoSaveTask();
+        if(this.configService.getSaveConfig().getAutoSaveIntervalTicks() > 0) this.scheduleSaveTask();
     }
 
-    public void kickOffAutoSaveTask() {
-        if (this.configService.getSaveConfig().getIsAutoSaveOn()) {
+    public void scheduleSaveTask() {
+        if (this.configService.getSaveConfig().getAutoSaveIntervalTicks() > 0) {
 
             for(World world : this.plugin.getServer().getWorlds()) {
                 world.setAutoSave(false);

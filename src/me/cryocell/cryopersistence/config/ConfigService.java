@@ -33,16 +33,8 @@ public class ConfigService {
         this.save();
     }
 
-    public File getDataFolder() {
-        return this.dataFolder;
-    }
-
     public String getTag() {
         return this.config.getString(Constants.TAG_FORMAT_BASE_PATH) + " ";
-    }
-
-    public String getReloadMessageFormat() {
-        return this.config.getString(Constants.RELOADED_FORMAT_PATH);
     }
 
     public String getNoPermissionsMessageFormat() {
@@ -78,8 +70,6 @@ public class ConfigService {
         // Format Defaults.
         this.config.addDefault(Constants.TAG_FORMAT_BASE_PATH, Constants.TAG_FORMAT_BASE_DEFAULT);
         this.config.addDefault(Constants.NO_PERMISSIONS_FORMAT_PATH, Constants.NO_PERMISSIONS_FORMAT_DEFAULT);
-        this.config.addDefault(Constants.NOT_FOUND_FORMAT_PATH, Constants.NOT_FOUND_FORMAT_DEFAULT);
-        this.config.addDefault(Constants.RELOADED_FORMAT_PATH, Constants.RELOADED_FORMAT_DEFAULT);
 
         this.config.options().copyDefaults(true);
     }
