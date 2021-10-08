@@ -1,8 +1,11 @@
 # CryoPersistence - Spigot Plugin
 
-This is a plugin that allows for the world to be saved and or backed-up on tickIntervals.
+This was developed based on a plugin [QuickSaveBackups](https://github.com/rockyhawk64/QuickSaveBackups) by rockyhawk64  
 
-The `.jar` is in the `out` folder, to use this plugin place the jar into the plugins' folder in your server.  
+## Overview
+This is a plugin that allows for the world to be saved and or backed-up on `tickIntervals`.
+
+The `.jar` is in the `out` folder, to use this plugin place the jar into the plugins folder in your server.  
 
 You need to have the option `--world-container worlds` after the last item in the start server command  
 
