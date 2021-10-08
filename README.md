@@ -1,4 +1,4 @@
-# CryoPersistence
+# CryoPersistence - Spigot Plugin
 
 This is a plugin that allows for the world to be saved and or backed-up on tickIntervals.
 
