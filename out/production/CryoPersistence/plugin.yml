@@ -1,0 +1,20 @@
+version: 0.1
+name: CryoPersistence
+main: me.cryocell.cryopersistence.CryoPersistence
+author: cryocell
+api-version: '1.13'
+description: Automatic World Backups/Saves
+commands:
+  cryo-persist:
+    description: Automatic World Backup/Save Command.
+    usage: /cryo-persist <args> [args]
+    aliases: [cp]
+permissions:
+  cryo-persist.admin.reload:
+    default: op
+  cryo-persist.admin.backup:
+    default: op
+  cryo-persist.help:
+    default: op
+  cryo-persist.version:
+    default: true
