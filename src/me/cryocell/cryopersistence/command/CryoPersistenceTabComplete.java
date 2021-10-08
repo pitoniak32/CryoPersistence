@@ -15,17 +15,23 @@ public class CryoPersistenceTabComplete implements TabCompleter {
 
     @Override
     public List<String> onTabComplete(CommandSender sender, Command cmd, String label, String[] args) {
-        if(label.equalsIgnoreCase("cp") || label.equalsIgnoreCase("cryo-persist")) {
+        if(this.isLabelAnOption(label)) {
             if (sender instanceof Player && args.length == 1) {
-                ArrayList<String> autoComplete = new ArrayList<>(); //all panels
+                ArrayList<String> autoComplete = new ArrayList<>();
                 autoComplete.add("help");
-                autoComplete.add("force-backup");
-                autoComplete.add("force-save");
+                autoComplete.add("fbackup");
+                autoComplete.add("fsave");
                 autoComplete.add("reload");
                 autoComplete.add("version");
                 return autoComplete;
             }
         }
         return null;
+    }
+
+    private boolean isLabelAnOption(String label) {
+        return label.equalsIgnoreCase("cp") ||
+                label.equalsIgnoreCase("cpersist") ||
+                label.equalsIgnoreCase("cryo-persist");
     }
 }

@@ -10,9 +10,9 @@ public class Constants {
     // Permissions Constants.
     public final static String RELOAD_PERMISSION_PATH = "cryo-persist.admin.reload";
     public final static String VERSION_PERMISSION_PATH = "cryo-persist.admin.version";
-    public final static String BACKUP_PERMISSION_PATH = "cryo-persist.admin.force-backup";
+    public final static String BACKUP_PERMISSION_PATH = "cryo-persist.admin.fbackup";
     public final static String HELP_PERMISSION_PATH = "cryo-persist.admin.help";
-    public final static String SAVE_PERMISSION_PATH = "cryo-persist.admin.force-save";
+    public final static String SAVE_PERMISSION_PATH = "cryo-persist.admin.fsave";
 
     // Backup Settings Constants.
     public final static String AUTO_BACKUP_ON_PATH = "backup.enabled";

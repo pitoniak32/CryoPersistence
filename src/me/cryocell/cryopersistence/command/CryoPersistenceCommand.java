@@ -47,7 +47,7 @@ public class CryoPersistenceCommand implements CommandExecutor {
                 sendHelpMessage(sender);
                 return true;
             }
-            if(args[0].equalsIgnoreCase("force-backup")) {
+            if(args[0].equalsIgnoreCase("fbackup")) {
                 if (sender.hasPermission(Constants.BACKUP_PERMISSION_PATH)) {
                     this.plugin.backupService.createNewBackup();
                 } else {
@@ -55,7 +55,7 @@ public class CryoPersistenceCommand implements CommandExecutor {
                 }
                 return true;
             }
-            if(args[0].equalsIgnoreCase("force-save")) {
+            if(args[0].equalsIgnoreCase("fsave")) {
                 if (sender.hasPermission(Constants.SAVE_PERMISSION_PATH)) {
                     this.plugin.saveService.saveFiles();
                 } else {
@@ -70,16 +70,20 @@ public class CryoPersistenceCommand implements CommandExecutor {
 
     public void sendHelpMessage(CommandSender sender){
         if (sender.hasPermission(Constants.HELP_PERMISSION_PATH)) {
-            sender.sendMessage(MessageUtils.convertColorCodes(this.configService.getTag() + ChatColor.AQUA + "Commands:"));
+            sender.sendMessage(MessageUtils.convertColorCodes(ChatColor.DARK_GRAY + "------------------ " + this.configService.getTag() + "------------------"));
             if(sender.hasPermission(Constants.RELOAD_PERMISSION_PATH)){
-                sender.sendMessage(ChatColor.AQUA + Constants.COMMAND_ALIAS + " reload " + ChatColor.WHITE + "Reloads plugin config file.");
+                sender.sendMessage(ChatColor.AQUA + Constants.COMMAND_ALIAS + ChatColor.DARK_AQUA + " reload" + ChatColor.DARK_GRAY + " - " + ChatColor.WHITE + "reloads config file, and tasks.");
             }
             if(sender.hasPermission(Constants.BACKUP_PERMISSION_PATH)){
-                sender.sendMessage(ChatColor.AQUA + Constants.COMMAND_ALIAS + " force-backup" + ChatColor.WHITE + "Creates a new backup for worlds.");
+                sender.sendMessage(ChatColor.AQUA + Constants.COMMAND_ALIAS + ChatColor.DARK_AQUA + " fbackup" + ChatColor.DARK_GRAY + " - " + ChatColor.WHITE + "creates a new backup for worlds.");
+            }
+            if(sender.hasPermission(Constants.SAVE_PERMISSION_PATH)){
+                sender.sendMessage(ChatColor.AQUA + Constants.COMMAND_ALIAS + ChatColor.DARK_AQUA + " fsave" + ChatColor.DARK_GRAY + " - " + ChatColor.WHITE + "saves players and worlds.");
             }
             if(sender.hasPermission(Constants.VERSION_PERMISSION_PATH)){
-                sender.sendMessage(ChatColor.AQUA + Constants.COMMAND_ALIAS + " version " + ChatColor.WHITE + "Display the current version");
+                sender.sendMessage(ChatColor.AQUA + Constants.COMMAND_ALIAS + ChatColor.DARK_AQUA + " version" + ChatColor.DARK_GRAY + " - " + ChatColor.WHITE + "display the current version");
             }
+            sender.sendMessage(MessageUtils.convertColorCodes(ChatColor.DARK_GRAY + "-----------------------------------------"));
         } else {
             sender.sendMessage(MessageUtils.convertColorCodes(ChatColor.RED + this.configService.getTag() + this.configService.getNoPermissionsMessageFormat()));
         }
