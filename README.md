@@ -2,6 +2,11 @@
 
 This was developed based on a plugin [QuickSaveBackups](https://github.com/rockyhawk64/QuickSaveBackups) by rockyhawk64  
 
+If you find a bug or area for improvement please let me know 😄
+
+## Disclaimer
+I do not take responsibility for lost or corrupted files. Use at your own risk.
+
 ## Overview
 This is a plugin that allows for the world to be saved and or backed-up on `tickIntervals`.
 
