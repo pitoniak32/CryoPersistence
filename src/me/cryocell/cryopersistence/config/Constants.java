@@ -42,17 +42,11 @@ public class Constants {
     public final static String TAG_FORMAT_BASE_DEFAULT = "[cp]";
 
     public final static String NO_PERMISSIONS_FORMAT_PATH = "format.permissions";
-    public final static String NO_PERMISSIONS_FORMAT_DEFAULT = "no permission.";
+    public final static String NO_PERMISSIONS_FORMAT_DEFAULT = "no permission";
 
     public final static String NOT_FOUND_FORMAT_PATH = "format.noWorld";
-    public final static String NOT_FOUND_FORMAT_DEFAULT = "world not found in config.";
+    public final static String NOT_FOUND_FORMAT_DEFAULT = "world not found in config";
 
     public final static String RELOADED_FORMAT_PATH = "format.reload";
-    public final static String RELOADED_FORMAT_DEFAULT = "reloaded.";
-
-    public final static String BACKUP_STARTED_FORMAT_PATH = "format.backing-up";
-    public final static String BACKUP_STARTED_FORMAT_DEFAULT = "starting new backup...";
-
-    public final static String SAVE_STARTED_FORMAT_PATH = "format.saving";
-    public final static String SAVE_STARTED_FORMAT_DEFAULT = "starting saves...";
+    public final static String RELOADED_FORMAT_DEFAULT = "reloaded";
 }

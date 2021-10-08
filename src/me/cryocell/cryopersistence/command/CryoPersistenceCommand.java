@@ -26,7 +26,7 @@ public class CryoPersistenceCommand implements CommandExecutor {
                 if (sender.hasPermission(Constants.RELOAD_PERMISSION_PATH)) {
                     this.configService.reloadSettings();
                     this.plugin.reloadTasks();
-                    sender.sendMessage(MessageUtils.convertColorCodes(ChatColor.GRAY + this.configService.getTag() + this.configService.getReloadMessageFormat()));
+                    sender.sendMessage(MessageUtils.convertColorCodes(ChatColor.GRAY + this.configService.getTag() + "reloaded"));
                 } else {
                     sender.sendMessage(MessageUtils.convertColorCodes(ChatColor.RED + this.configService.getTag() + this.configService.getNoPermissionsMessageFormat()));
                 }
@@ -35,8 +35,8 @@ public class CryoPersistenceCommand implements CommandExecutor {
             if(args[0].equalsIgnoreCase("version")) {
                 if (sender.hasPermission(Constants.VERSION_PERMISSION_PATH)) {
                     sender.sendMessage(MessageUtils.convertColorCodes(ChatColor.DARK_GRAY + "------------------ " + this.configService.getTag() + "------------------"));
-                    sender.sendMessage(ChatColor.AQUA + "Version" + ChatColor.DARK_GRAY + ": " + ChatColor.GRAY + this.plugin.getDescription().getVersion());
-                    sender.sendMessage(ChatColor.AQUA + "Developer" + ChatColor.DARK_GRAY + ": " + ChatColor.DARK_AQUA + "cryocell");
+                    sender.sendMessage(ChatColor.AQUA + "Version" + ChatColor.DARK_GRAY + ": v" + ChatColor.DARK_AQUA + "" + ChatColor.ITALIC +this.plugin.getDescription().getVersion());
+                    sender.sendMessage(ChatColor.AQUA + "Developer" + ChatColor.DARK_GRAY + ": " + ChatColor.DARK_AQUA + "" + ChatColor.ITALIC + "cryocell");
                     sender.sendMessage(MessageUtils.convertColorCodes(ChatColor.DARK_GRAY + "-----------------------------------------"));
                 }else{
                     sender.sendMessage(MessageUtils.convertColorCodes(ChatColor.RED + this.configService.getTag() + this.configService.getNoPermissionsMessageFormat()));

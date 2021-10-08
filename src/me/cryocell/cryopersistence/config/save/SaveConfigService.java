@@ -19,16 +19,11 @@ public class SaveConfigService {
         return this.config.getInt(Constants.AUTO_SAVE_INTERVAL_TICKS_PATH);
     }
 
-    public String getSaveStartedMessageFormat() {
-        return this.config.getString(Constants.SAVE_STARTED_FORMAT_PATH);
-    }
-
     private void setDefaults() {
         // Settings Defaults.
         this.config.addDefault(Constants.AUTO_SAVE_ON_PATH, Constants.AUTO_SAVE_ON_DEFAULT);
         this.config.addDefault(Constants.AUTO_SAVE_INTERVAL_TICKS_PATH, Constants.AUTO_SAVE_INTERVAL_TICKS_DEFAULT);
 
-        // Formatting Defaults.
-        this.config.addDefault(Constants.SAVE_STARTED_FORMAT_PATH, Constants.SAVE_STARTED_FORMAT_DEFAULT);
+        this.config.options().copyDefaults(true);
     }
 }

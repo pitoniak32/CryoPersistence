@@ -35,9 +35,6 @@ public class BackupConfigService {
         return this.config.getInt(Constants.AUTO_BACKUP_INTERVAL_TICKS_PATH);
     }
 
-    public String getBackupStartedMessageFormat() {
-        return this.config.getString(Constants.BACKUP_STARTED_FORMAT_PATH);
-    }
 
     private void setDefaults() {
         // Settings Defaults.
@@ -46,9 +43,6 @@ public class BackupConfigService {
         this.config.addDefault(Constants.BACKUP_MAX_FOLDER_SIZE_MB_PATH, Constants.BACKUP_MAX_FOLDER_SIZE_MB_DEFAULT);
         this.config.addDefault(Constants.BACKUP_MAX_COUNT_PATH, Constants.BACKUP_MAX_COUNT_DEFAULT);
         this.config.addDefault(Constants.BACKUP_WORLD_FILES_PATH, Constants.BACKUP_WORLD_FILES_DEFAULT);
-
-        // Formatting Defaults.
-        this.config.addDefault(Constants.BACKUP_STARTED_FORMAT_PATH, Constants.BACKUP_STARTED_FORMAT_DEFAULT);
 
         this.config.options().copyDefaults(true);
     }
