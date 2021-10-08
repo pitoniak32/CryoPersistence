@@ -23,20 +23,15 @@ public class BackupService {
         this.plugin = plugin;
         this.zipper = new WorldZipper(this.plugin, this.configService);
         this.saveFolder = new File(this.plugin.getDataFolder().getAbsolutePath().concat(File.separator).concat("backups"));
-        this.kickOffAutoBackupTask();
+        this.scheduleBackupTask();
     }
 
-    public void kickOffAutoBackupTask() {
+    public void scheduleBackupTask() {
         if (this.configService.getBackupConfig().getIsAutoBackupOn()) {
             this.autoBackupTask = new BukkitRunnable() {
                 @Override
                 public void run() {
                     createNewBackup();
-                    OldBackupManager.removeOldBackups(
-                            saveFolder.getAbsolutePath(),
-                            configService.getBackupConfig().getMaxBackupWorldsCount(),
-                            plugin
-                    );
                 }
             }.runTaskTimer(
                 this.plugin,
@@ -58,7 +53,15 @@ public class BackupService {
 
         MessageUtils.broadcastMessage(this.plugin.getServer(), ChatColor.DARK_GRAY + this.configService.getTag() + "server backup starting");
 
-        ZipWorlds.zipWorldFolders(this.plugin.getServer().getWorldContainer().getAbsolutePath(), this.saveFolder.getAbsolutePath());
+        new Thread(() -> {
+            ZipWorlds.zipWorldFolders(this.plugin.getServer().getWorldContainer().getAbsolutePath(), this.saveFolder.getAbsolutePath());
+
+            OldBackupManager.removeOldBackups(
+                    saveFolder.getAbsolutePath(),
+                    configService.getBackupConfig().getMaxBackupWorldsCount(),
+                    plugin
+            );
+        }).start();
     }
 
     public void cancelBackupTask() {
